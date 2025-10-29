@@ -1,0 +1,19 @@
+{
+  "name": "Towing Service",
+  "short_name": "TowHook",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#DAB876",
+  "background_color": "#DAB876",
+  "display": "standalone"
+}
