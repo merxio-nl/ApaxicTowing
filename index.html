@@ -118,7 +118,7 @@
     }
 
     .hero-title {
-      font-size: clamp(1.8rem, 1vw + 1.3rem, 2.2rem);
+      font-size: clamp(1.9rem, 1vw + 1.3rem, 2.2rem);
       font-weight: 600;
       line-height: 1.15;
       color: var(--text-light);
@@ -404,7 +404,9 @@
       text-decoration: underline;
     }
 
-    /* --- ANIMATION STYLES --- */
+    /* --- ANIMATIONS --- */
+
+    /* base reveal animation */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -415,6 +417,7 @@
       transform: translateY(0);
     }
 
+    /* hero fade-in only, no hide on mobile load */
     .hero-animate-start {
       opacity: 0;
       transform: translateY(20px);
@@ -425,10 +428,11 @@
       transform: translateY(0);
     }
 
-    /* stagger effect for cards */
+    /* Stagger for cards */
     .service-card,
     .review-card,
-    .about-photo-box {
+    .about-photo-box,
+    .contact-block {
       transition-delay: .1s;
     }
     .service-card:nth-child(2),
@@ -445,6 +449,7 @@
     .about-photo-box:nth-child(4) {
       transition-delay: .4s;
     }
+
   </style>
 </head>
 <body>
@@ -470,8 +475,8 @@
     </div>
   </header>
 
-  <!-- SERVICES -->
-  <section class="services reveal">
+  <!-- SERVICES (NOT hidden on load, so mobile doesn't see empty white) -->
+  <section class="services">
     <div class="wrapper">
       <h2 class="section-title">
         <span class="bar"></span>
@@ -709,7 +714,7 @@ We serve Bonney Lake, WA and up to 200 miles around the Seattle area. Ask for a 
   </footer>
 
   <script>
-    // hero fade-in on load
+    // HERO: fade hero text on load (desktop & mobile ok, no blank content)
     window.addEventListener('load', () => {
       const hero = document.getElementById('heroContent');
       if (hero) {
@@ -719,7 +724,7 @@ We serve Bonney Lake, WA and up to 200 miles around the Seattle area. Ask for a 
       }
     });
 
-    // reveal on scroll using IntersectionObserver
+    // SCROLL REVEAL for deeper content
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -727,9 +732,7 @@ We serve Bonney Lake, WA and up to 200 miles around the Seattle area. Ask for a 
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.15
-    });
+    }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach(el => {
       observer.observe(el);
