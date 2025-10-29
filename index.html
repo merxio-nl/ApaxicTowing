@@ -1,55 +1,740 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apaxic LLC Towing | Bonney Lake, WA</title>
-<style>
-body{font-family:Inter,system-ui,sans-serif;margin:0;background:#fff;}
-.hero{min-height:70vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),url('hero.jpg')center/cover;display:flex;align-items:flex-end;color:#fff;}
-.hero-inner{max-width:1200px;margin:0 auto;padding:3rem 1rem;}
-.hero-topline{background:#f4c533;color:#000;padding:.4rem .6rem;border-radius:.4rem;display:inline-block;margin-bottom:1rem;}
-.hero-title{font-size:2rem;font-weight:600;margin-bottom:.5rem;}
-.hero-sub{color:#ddd;margin-bottom:1.5rem;}
-.call-btn{background:#f4c533;color:#000;text-decoration:none;padding:.8rem 1.2rem;border-radius:.6rem;font-weight:600;display:inline-block;border:2px solid #000;}
-section{padding:3rem 1rem;max-width:1200px;margin:0 auto;}
-.section-title{font-size:1.4rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
-.section-title .bar{width:36px;height:4px;background:#f4c533;border-radius:999px;}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.hero-animate-start{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;}
-.hero-animate-start.ready{opacity:1;transform:translateY(0);}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apaxic LLC Towing | Bonney Lake, WA</title>
+  <meta name="description" content="Local towing and roadside assistance. Based in Bonney Lake, WA. Serving up to 200 miles around the Seattle area. Call now: +1 (224) 224-9240." />
+
+  <meta property="og:title" content="Apaxic LLC Towing" />
+  <meta property="og:description" content="Fast, professional towing and roadside help in the Seattle area (up to 200 miles). Call +1 (224) 224-9240." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero.jpg" />
+
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <style>
+    :root {
+      --brand-yellow: #f4c533;
+      --bg-dark: #111111;
+      --text-dark: #1a1a1a;
+      --text-light: #ffffff;
+      --card-bg: #ffffff;
+      --section-bg: #fff9e3;
+      --border-light: rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-dark);
+      background-color: #fff;
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h2.section-title {
+      font-size: clamp(1.4rem, 0.3vw + 1.3rem, 1.6rem);
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    h2.section-title .bar {
+      width: 36px;
+      height: 4px;
+      border-radius: 999px;
+      background-color: var(--brand-yellow);
+      flex-shrink: 0;
+    }
+
+    p.section-desc {
+      font-size: 0.95rem;
+      color: #444;
+      max-width: 650px;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      color: var(--text-light);
+      display: flex;
+      align-items: flex-end;
+      background-color: #000;
+      background-image: linear-gradient(
+          rgba(0,0,0,0.55),
+          rgba(0,0,0,0.7)
+        ),
+        url('hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 3.5rem;
+    }
+
+    .hero-topline {
+      font-size: .8rem;
+      font-weight: 500;
+      background-color: var(--brand-yellow);
+      color: #000;
+      display: inline-block;
+      padding: .4rem .6rem;
+      border-radius: .4rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 1vw + 1.3rem, 2.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-light);
+      max-width: 700px;
+      margin-bottom: .75rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #eaeaea;
+      max-width: 700px;
+      line-height: 1.4;
+      text-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .call-btn {
+      background-color: var(--brand-yellow);
+      color: #000;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.2;
+      border-radius: .6rem;
+      padding: .9rem 1.2rem;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+      border: 2px solid #000;
+    }
+
+    /* SERVICES */
+    .services {
+      background-color: var(--section-bg);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-light);
+      border-radius: .8rem;
+      padding: 1rem 1rem 1.2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .service-card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: .5rem;
+      line-height: 1.3;
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+    }
+
+    .service-emoji {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .service-card-desc {
+      font-size: .9rem;
+      color: #444;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      background-color: #fff;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%), 1fr));
+      gap: 1rem;
+    }
+
+    .review-card {
+      background-color: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: .8rem;
+      padding: 1rem 1rem 1.2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      font-size: .9rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .review-text {
+      font-style: italic;
+      color: #222;
+      margin-bottom: .75rem;
+    }
+
+    .review-author {
+      font-size: .8rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    /* ABOUT */
+    .about {
+      background-color: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media(min-width: 768px){
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .about-text-block {
+      background-color: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: .8rem;
+      padding: 1rem 1rem 1.2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      font-size: .95rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .about-text-block ul {
+      margin: .75rem 0 0 1rem;
+      padding: 0;
+      list-style: disc;
+      font-size: .9rem;
+      line-height: 1.4;
+      color: #444;
+    }
+
+    .about-photos {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-photo-box {
+      background-color: #ddd;
+      border-radius: .6rem;
+      border: 1px solid var(--border-light);
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      color: #555;
+      text-align: center;
+      padding: .75rem;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    /* CONTACT */
+    .contact {
+      background-color: var(--section-bg);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .contact-block {
+      background-color: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: .8rem;
+      padding: 1rem 1rem 1.2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      font-size: .9rem;
+      line-height: 1.5;
+      color: #333;
+      max-width: 480px;
+    }
+
+    .contact-line {
+      margin-bottom: .6rem;
+      word-break: break-word;
+    }
+
+    .contact-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      color: #666;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: .2rem;
+    }
+
+    .contact-value a,
+    .contact-value {
+      color: var(--text-dark);
+      font-size: .9rem;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .contact-value a:hover {
+      text-decoration: underline;
+    }
+
+    .mini-cta {
+      margin-top: 1rem;
+    }
+
+    .mini-cta .call-btn {
+      font-size: .9rem;
+      padding: .7rem 1rem;
+      display: inline-block;
+    }
+
+    /* Instagram discount block */
+    .insta-discount {
+      background: #fff5cc;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: .8rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: .9rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .insta-discount strong {
+      font-weight: 600;
+      color: #000;
+    }
+
+    .insta-discount a.insta-btn {
+      display: inline-block;
+      margin-top: .4rem;
+      font-weight: 600;
+      color: #000;
+      background: var(--brand-yellow);
+      padding: .5rem .75rem;
+      border-radius: .5rem;
+      text-decoration: none;
+      border: 2px solid #000;
+    }
+
+    .insta-discount a.insta-btn:hover {
+      background: #ffe27a;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-size: .75rem;
+      line-height: 1.4;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    footer .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #bbb;
+    }
+
+    footer a {
+      color: var(--brand-yellow);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- ANIMATION STYLES --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-animate-start {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .hero-animate-start.ready {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger effect for cards */
+    .service-card,
+    .review-card,
+    .about-photo-box {
+      transition-delay: .1s;
+    }
+    .service-card:nth-child(2),
+    .review-card:nth-child(2),
+    .about-photo-box:nth-child(2) {
+      transition-delay: .2s;
+    }
+    .service-card:nth-child(3),
+    .review-card:nth-child(3),
+    .about-photo-box:nth-child(3) {
+      transition-delay: .3s;
+    }
+    .service-card:nth-child(4),
+    .about-photo-box:nth-child(4) {
+      transition-delay: .4s;
+    }
+  </style>
 </head>
 <body>
-<header class="hero">
-  <div class="hero-inner hero-animate-start" id="heroContent">
-    <div class="hero-topline">APAXIC LLC TOWING • BONNEY LAKE, WA</div>
-    <h1 class="hero-title">Fast & Reliable Towing Service</h1>
-    <div class="hero-sub">Based in Bonney Lake, WA. Serving up to 200 miles around Seattle.<br>Professional towing & roadside assistance — day & night.</div>
-    <a href="tel:+12242249240" class="call-btn">Call Now: +1 (224) 224-9240</a>
-  </div>
-</header>
-<section class="reveal">
-  <h2 class="section-title"><span class="bar"></span>How We Help</h2>
-  <p>No stress. No judgment. Just real help when you need it.</p>
-</section>
-<section class="reveal">
-  <h2 class="section-title"><span class="bar"></span>Customer Reviews</h2>
-  <p>People trust us with their car, and their safety. That matters.</p>
-</section>
-<section class="reveal">
-  <h2 class="section-title"><span class="bar"></span>About Apaxic LLC</h2>
-  <p>Apaxic LLC Towing — trusted local towing and roadside assistance company based in Bonney Lake, WA.</p>
-</section>
-<section class="reveal">
-  <h2 class="section-title"><span class="bar"></span>Contact</h2>
-  <p>Call now for immediate help. We'll guide you step by step.</p>
-</section>
-<script>
-window.addEventListener('load',()=>{document.getElementById('heroContent').classList.add('ready')});
-const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner hero-animate-start" id="heroContent">
+      <div class="hero-topline">APAXIC LLC TOWING • BONNEY LAKE, WA</div>
+
+      <h1 class="hero-title">
+        Fast & Reliable Towing Service
+      </h1>
+
+      <div class="hero-sub">
+        Based in Bonney Lake, WA.<br/>
+        Serving up to 200 miles around the Seattle area.<br/>
+        Professional towing & roadside assistance — day & night.
+      </div>
+
+      <a class="call-btn" href="tel:+12242249240">
+        Call Now: +1 (224) 224-9240
+      </a>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section class="services reveal">
+    <div class="wrapper">
+      <h2 class="section-title">
+        <span class="bar"></span>
+        <span>How We Help</span>
+      </h2>
+
+      <p class="section-desc">
+        No stress. No judgment. Just real help when you need it.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-card-title">
+            <span class="service-emoji">🔋</span>
+            <span>Jump Start</span>
+          </div>
+          <div class="service-card-desc">
+You wake up in the morning, ready to go to work — and the car just won't start.
+Don't panic.
+
+Call us and we'll come to you right away. We safely jump your battery and get you back on the road in minutes.
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-title">
+            <span class="service-emoji">🚗</span>
+            <span>Recovery / Winch Out</span>
+          </div>
+          <div class="service-card-desc">
+Your car slid off the road or got stuck in a ditch?
+You’re stressed, you’re not sure what to do.
+
+Just call us.
+We recover the vehicle safely, pull it out without extra damage, and help you continue your trip.
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-title">
+            <span class="service-emoji">🛠️</span>
+            <span>Tire Change</span>
+          </div>
+          <div class="service-card-desc">
+Flat tire on the highway? On your driveway? Middle of the night?
+
+We’ll arrive fast, replace the tire safely, and make sure you’re good to drive — no crawling on the shoulder, no risk.
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-title">
+            <span class="service-emoji">🔑</span>
+            <span>Lockout Service</span>
+          </div>
+          <div class="service-card-desc">
+Keys locked inside your car? It happens to everybody.
+
+Call us and we’ll unlock the vehicle quickly and without damage, so you can get back in and keep moving.
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-title">
+            <span class="service-emoji">⛽</span>
+            <span>Fuel Delivery</span>
+          </div>
+          <div class="service-card-desc">
+Ran out of gas on the way somewhere important?
+
+Stay where you are.
+We’ll bring fuel directly to you so you don’t have to walk, hitchhike, or leave the car alone.
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-title">
+            <span class="service-emoji">🚚</span>
+            <span>Local & Long-Distance Towing</span>
+          </div>
+          <div class="service-card-desc">
+Need your vehicle moved safely? We tow cars, trucks, SUVs — locally or long-distance.
+
+We serve Bonney Lake, WA and up to 200 miles around the Seattle area. Ask for a quote by phone.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews reveal">
+    <div class="wrapper">
+      <h2 class="section-title">
+        <span class="bar"></span>
+        <span>Customer Reviews</span>
+      </h2>
+
+      <p class="section-desc">
+        People trust us with their car, and their safety. That matters.
+      </p>
+
+      <div class="review-grid">
+        <div class="review-card reveal">
+          <p class="review-text">
+            “I called Apaxic when my truck broke down near Tacoma. They arrived in under 30 minutes, loaded the truck carefully, and treated me with respect. Super professional.”
+          </p>
+          <div class="review-author">— Jason P., Tacoma WA</div>
+        </div>
+
+        <div class="review-card reveal">
+          <p class="review-text">
+            “My battery died before work. I was already stressed. They came out, jump started it, and made sure I was okay to drive. Very calm, very polite. 10/10.”
+          </p>
+          <div class="review-author">— Sarah M., Seattle WA</div>
+        </div>
+
+        <div class="review-card reveal">
+          <p class="review-text">
+            “Best experience I’ve had with towing. Fair price, clear communication, no attitude. I would absolutely use them again.”
+          </p>
+          <div class="review-author">— Kevin R., Bonney Lake WA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about reveal">
+    <div class="wrapper">
+      <h2 class="section-title">
+        <span class="bar"></span>
+        <span>About Apaxic LLC</span>
+      </h2>
+
+      <div class="about-grid">
+        <div class="about-text-block reveal">
+          <p style="margin-bottom:1rem;">
+            Apaxic LLC Towing is a local, trusted towing and roadside assistance company based in Bonney Lake, WA and serving up to 200 miles around the Seattle area.
+          </p>
+
+          <ul>
+            <li>Fast response time</li>
+            <li>Professional equipment and safe loading</li>
+            <li>Clear communication, no surprises</li>
+            <li>Respectful service — we know you're stressed</li>
+          </ul>
+
+          <p style="margin-top:1rem;">
+            If you need help right now — just call. We’ll take care of the rest.
+          </p>
+        </div>
+
+        <div class="about-photos">
+          <div class="about-photo-box reveal">Photo: tow truck on call</div>
+          <div class="about-photo-box reveal">Photo: loaded vehicle</div>
+          <div class="about-photo-box reveal">Photo: recovery/winch</div>
+          <div class="about-photo-box reveal">Photo: branded door / APAXIC LLC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact reveal">
+    <div class="wrapper">
+      <h2 class="section-title">
+        <span class="bar"></span>
+        <span>Contact</span>
+      </h2>
+
+      <p class="section-desc">
+        Call us now for immediate assistance. We’ll guide you step by step.
+      </p>
+
+      <div class="contact-block reveal">
+        <div class="contact-line">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">
+            <a href="tel:+12242249240">+1 (224) 224-9240</a>
+          </div>
+        </div>
+
+        <div class="contact-line">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            <a href="mailto:apaxic23@gmail.com">apaxic23@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-line">
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">
+            <a href="https://www.instagram.com/towing_apaxic" target="_blank" rel="noopener">
+              @towing_apaxic
+            </a>
+          </div>
+        </div>
+
+        <div class="mini-cta">
+          <a class="call-btn" href="tel:+12242249240">
+            Call Now: +1 (224) 224-9240
+          </a>
+        </div>
+
+        <div class="insta-discount reveal">
+          <strong>💬 Follow us on Instagram</strong><br/>
+          and get <strong>10% off</strong> your towing service when you call.<br/>
+          Real work. Real customers. Real results.<br/>
+          <a class="insta-btn" href="https://www.instagram.com/towing_apaxic" target="_blank" rel="noopener">
+            👉 @towing_apaxic
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div style="font-weight:500; color:#fff; margin-bottom:.5rem;">
+        APAXIC LLC TOWING • Bonney Lake, WA
+      </div>
+      <div>
+        Serving up to 200 miles around the Seattle area
+      </div>
+      <div style="margin-top:.5rem; color:#bbb;">
+        © 2025 Apaxic LLC. All rights reserved.
+      </div>
+      <div style="margin-top:.5rem;">
+        Call: <a href="tel:+12242249240">+1 (224) 224-9240</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // hero fade-in on load
+    window.addEventListener('load', () => {
+      const hero = document.getElementById('heroContent');
+      if (hero) {
+        requestAnimationFrame(() => {
+          hero.classList.add('ready');
+        });
+      }
+    });
+
+    // reveal on scroll using IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
